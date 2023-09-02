@@ -1,0 +1,51 @@
+{
+  "name": "NodeJS Server",
+  "version": "1.0.0",
+  "description": "NodeJS Server Exercise",
+  "main": "index.js",
+  "scripts": {
+    "jasmine": "jasmine",
+    "build": "npx tsc",
+    "test": "jasmine-ts",
+    "tsc": "tsc",
+    "start": "node src/server.ts",
+    "prettier": "prettier --config .prettierrc --write src/**/*.ts ",
+    "lint": "eslint  src/**/*.ts  ",
+    "watch": "tsc-watch --esModuleInterop src/server.ts --outDir ./dist --onSuccess \"node dist/server.js\""
+  },
+  "author": "Udacity",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/csvtojson": "^2.0.0",
+    "@types/jasmine": "^4.3.5",
+    "@types/node": "^14.14.6",
+    "@types/supertest": "^2.0.12",
+    "@typescript-eslint/eslint-plugin": "^5.62.0",
+    "@typescript-eslint/parser": "^5.62.0",
+    "eslint": "^8.47.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-config-standard-with-typescript": "^37.0.0",
+    "eslint-plugin-import": "^2.28.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "jasmine": "^5.1.0",
+    "jasmine-spec-reporter": "^7.0.0",
+    "jasmine-ts": "^0.4.0",
+    "nodemon": "^3.0.1",
+    "prettier": "^3.0.2",
+    "ts-node": "^9.0.0",
+    "tsc-watch": "^6.0.4"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.17",
+    "body-parser": "^1.20.1",
+    "csvtojson": "^2.0.10",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "sharp": "^0.32.5",
+    "supertest": "^6.3.3",
+    "typescript": "^5.2.2"
+  }
+}
