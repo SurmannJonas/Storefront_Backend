@@ -2,6 +2,7 @@ import express, {Request, Response} from "express";
 import bodyParser from "body-parser";
 import cors from 'cors';
 import weaponsRoutes from "./handlers/mythical_weapons";
+import userRoutes from "./handlers/users"
 
 const app: express.Application = express();
 const address: string = "0.0.0.0:3000";

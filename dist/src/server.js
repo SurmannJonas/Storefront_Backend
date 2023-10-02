@@ -7,6 +7,7 @@ var express_1 = __importDefault(require("express"));
 var body_parser_1 = __importDefault(require("body-parser"));
 var cors_1 = __importDefault(require("cors"));
 var mythical_weapons_1 = __importDefault(require("./handlers/mythical_weapons"));
+//import userRoutes from "./handlers/user"
 var app = (0, express_1.default)();
 var address = "0.0.0.0:3000";
 var corsOptions = {
@@ -18,25 +19,24 @@ app.use(body_parser_1.default.json());
 app.get('/test-cors', (0, cors_1.default)(corsOptions), function (req, res) {
     res.json({ msg: 'This is CORS-enabled with a middel ware' });
 });
-/*
-app.get('/mythical_weapons', (_req: Request, res: Response) => {
+app.get('/mythical_weapons', function (_req, res) {
     try {
-        res.send('this is the INDEX route')
-    } catch (err) {
-        res.status(400)
-        res.json(err)
+        res.send('this is the INDEX route');
     }
-})
-
-app.get('/mythical_weapons/:id', (_req: Request, res: Response) => {
+    catch (err) {
+        res.status(400);
+        res.json(err);
+    }
+});
+app.get('/mythical_weapons/:id', function (_req, res) {
     try {
-       res.send('this is the SHOW route')
-    } catch (err) {
-       res.status(400)
-       res.json(err)
+        res.send('this is the SHOW route');
     }
-})
-*/
+    catch (err) {
+        res.status(400);
+        res.json(err);
+    }
+});
 app.delete('/mythical_weapons/:id', function (_req, res) {
     try {
         res.send('this is the DELETE route');

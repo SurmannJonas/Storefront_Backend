@@ -9,6 +9,24 @@ const index = async (_req: Request, res: Response) => {
   res.json(weapons)
 }
 
+const create = async (_req: Request, res: Response) => {
+    const weapon: Weapon = {
+        username: _req.body.username,
+        password: _req.body.password,
+        weight: _req.body.weight
+    }
+    jwt.verify(_req.body.token, process.env.TOKEN_SECRET);
+
+    try {
+        const newWeapon = await store.create(weapon)
+
+        res.json(newWeapon)
+    } catch(err) {
+        res.status(400)
+        res.json(err + user)
+    }
+}
+
 const show = async (req: Request, res: Response) => {
   const weapon = await store.show(req.params.id);
   res.json(weapon)
