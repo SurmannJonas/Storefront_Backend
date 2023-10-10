@@ -51,6 +51,41 @@ var index = function (_req, res) { return __awaiter(void 0, void 0, void 0, func
         }
     });
 }); };
+var create = function (_req, res) { return __awaiter(void 0, void 0, void 0, function () {
+    var weapon, newWeapon, err_1;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                weapon = {
+                    username: _req.body.username,
+                    password: _req.body.password,
+                    weight: _req.body.weight
+                };
+                try {
+                    jwt.verify(_req.body.token, process.env.TOKEN_SECRET);
+                }
+                catch (err) {
+                    res.status(401);
+                    res.json('Invalid token ${err}');
+                    return [2 /*return*/];
+                }
+                _a.label = 1;
+            case 1:
+                _a.trys.push([1, 3, , 4]);
+                return [4 /*yield*/, store.create(weapon)];
+            case 2:
+                newWeapon = _a.sent();
+                res.json(newWeapon);
+                return [3 /*break*/, 4];
+            case 3:
+                err_1 = _a.sent();
+                res.status(400);
+                res.json(err_1);
+                return [3 /*break*/, 4];
+            case 4: return [2 /*return*/];
+        }
+    });
+}); };
 var show = function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var weapon;
     return __generator(this, function (_a) {

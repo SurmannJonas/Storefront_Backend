@@ -15,15 +15,20 @@ const create = async (_req: Request, res: Response) => {
         password: _req.body.password,
         weight: _req.body.weight
     }
-    jwt.verify(_req.body.token, process.env.TOKEN_SECRET);
 
+    try{
+      jwt.verify(_req.body.token, process.env.TOKEN_SECRET);
+    } catch(err) {
+      res.status(401)
+      res.json('Invalid token ${err}')
+      return
+    }
     try {
         const newWeapon = await store.create(weapon)
-
         res.json(newWeapon)
     } catch(err) {
         res.status(400)
-        res.json(err + user)
+        res.json(err)
     }
 }
 
